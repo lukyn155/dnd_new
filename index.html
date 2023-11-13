@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DnD template</title>
+        <style>
+            :root {
+                --black: #222831;
+                --grey: #393E46;
+                --brown: #B55400;
+                --white: #EEEEEE;
+
+                --red: #ff010a;
+
+
+                --primary: #222831;
+                --secondary: #393E46;
+                --third: #B55400;
+                --fourth: #EEEEEE;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                color: var(--white);
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: var(--black);
+                display: flex;
+                flex-flow: column;
+                min-height: 100vh;
+                width: 100%;
+            }
+
+            header {
+                background-color: var(--black);
+                width: 100%;
+                height: 80px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                box-shadow: 0 15px 40px var(--grey);
+                /*box-shadow: 0 4px 8px var(--black);*/
+            }
+
+            header .logo {
+                flex-shrink: 1;
+                flex-basis: 20%;
+                align-self: center;
+            }
+
+            header .logo p {
+                font-size: 40px;
+                font-weight: bold;
+            }
+
+            header .logo img {
+                height: 80px;
+                aspect-ratio: 16/9;
+            }
+
+            header .title {
+                position: relative;
+                margin: 0;
+                height: 70%;
+                background-color: var(--grey);
+                text-align: center;
+                flex-grow: 2;
+                align-self: flex-end;
+                flex-basis: 60%;
+                clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+            }
+
+            .title h1 {
+                padding-top: 10px;
+            }
+
+            nav {
+                flex-shrink: 1;
+                flex-basis: 20%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            nav .nav_button {
+                text-decoration: none;
+                color: black;
+            }
+
+            nav .nav_button div:hover {
+                color: var(--brown);
+            }
+
+            article h2 {
+                margin-bottom: 30px;
+                background-color: var(--black);
+                width: 86%;
+                text-align: center;
+                border: 2px solid var(--black);
+                border-radius: 15px;
+                padding: 15px;
+                /*box-shadow: inset 0px 0px 25px var(--grey);*/
+            }
+
+            .campaign {
+                position: relative;
+                display: grid;
+                width: 90%;
+                border: 1px solid black;
+                margin-bottom: 20px;
+                height: 100px;
+                border-radius: 20px;
+            }
+
+            .box-shadow-3d{
+                box-shadow: 10px 15px 10.6px hsl(0deg 0% 0% / 0.5)
+            }
+
+            .campaign .title {
+                position: relative;
+                place-self: center;
+                margin: 0;
+                padding: 0;
+                color: white;
+                font-size: 32px;
+                font-weight: bold;
+                z-index: 500;
+                opacity: 1;
+                transition: opacity 0.3s;
+                /*display: none;*/
+            }
+
+            .campaign_info {
+                /*display: none;*/
+                position: relative;
+                width: 90%;
+                place-self: center;
+                color: white;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                opacity: 0;
+                transition: opacity 0.5s;
+                z-index: 500;
+            }
+
+            .campaign_info div {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .campaign_info #players_number {
+                flex-basis: 20%;
+            }
+            .campaign_info #session_number {
+                flex-basis: 20%;
+            }
+            .campaign_info #session_date {
+                flex-basis: 20%;
+            }
+
+            .campaign_info  {
+                font-weight: bold;
+            }
+
+            .campaign_info p {
+                margin-right: 10px;
+            }
+
+            .campaign .background_image {
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-image: url('images/banner_image.png');
+
+                height: 100%;
+                width: 100%;
+
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                border-radius: 20px;
+            }
+
+            .campaign .banner_transition {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                z-index: 999;
+
+                height: 100%;
+                width: 100%;
+            }
+
+            .campaign .banner_transition:hover {
+                cursor: pointer;
+            }
+
+            .blur {
+                filter: blur(5px) !important;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo"><img src="images/DnD-Symbol.png" alt="logo"></div>
+            <div class="title">
+                <h1>Kampaně</h1>
+            </div>
+            <nav>
+                <a class="nav_button" href="index.html"><div>Kampaně</div></a>
+                <a class="nav_button" href="new_character.html"><div>Postava</div></a>
+            </nav>
+        </header>
+        <section style="display: flex; justify-content: space-between; min-height: 85vh; width: 75%; margin-left: auto; margin-right: auto; background-color: var(--grey); border-radius: 15px; padding: 50px 30px 80px 30px; border: 0 2px 2px 2px solid var(--black);">
+            <article style="display: flex; justify-content: center; align-items: center; flex-flow: column; width: 50%; row-gap: 15px;">
+                <h2>PJ</h2>
+                <div class="campaign box-shadow-3d">
+                        <div id="campaign1" class="background_image"></div>
+                        <div id="banner_1" class="banner_transition" onclick="location.href = './test2.html';" onmouseenter="addBlur(this)" onmouseout="removeBlur(this)"></div>
+                        <p id="title1" class="title">Název1</p>
+                        <div id="campaign_info1" class="campaign_info">
+                            <div id="players_number"><p>4</p><span>Icon</span></div>
+                            <div id="session_number"><p>7</p><span>Icon</span></div>
+                            <div id="session_date"><p>01:07:2023</p><span>Icon</span></div>
+                        </div>
+                </div>
+                <div class="campaign box-shadow-3d">
+                    <div id="campaign2" class="background_image"></div>
+                    <div id="banner_2" class="banner_transition" onclick="location.href = './test2.html';" onmouseenter="addBlur(this)" onmouseout="removeBlur(this)"></div>
+                    <p id="title2" class="title">Název2</p>
+                    <div id="campaign_info2" class="campaign_info">
+                        <div id="players_number"><p>4</p><span>Icon</span></div>
+                        <div id="session_number"><p>7</p><span>Icon</span></div>
+                        <div id="session_date"><p>01:07:2023</p><span>Icon</span></div>
+                    </div>
+                </div>
+                <div class="campaign box-shadow-3d">
+                    <div id="campaign3" class="background_image"></div>
+                    <div id="banner_3" class="banner_transition" onclick="location.href = './test2.html';" onmouseenter="addBlur(this)" onmouseout="removeBlur(this)"></div>
+                    <p id="title3" class="title">Název3</p>
+                    <div id="campaign_info3" class="campaign_info">
+                        <div id="players_number"><p>4</p><span>Icon</span></div>
+                        <div id="session_number"><p>7</p><span>Icon</span></div>
+                        <div id="session_date"><p>01:07:2023</p><span>Icon</span></div>
+                    </div>
+                </div>
+            </article>
+            <article id="player_cmp" style="display: flex; justify-content: center; align-items: center; flex-flow: column; width: 50%; row-gap: 15px;">
+                <h2>Player</h2>
+                <div class="campaign box-shadow-3d">
+                    <div id="campaign4" class="background_image"></div>
+                    <div id="banner_4" class="banner_transition" onclick="location.href = './test2.html';" onmouseenter="addBlur(this)" onmouseout="removeBlur(this)"></div>
+                    <p id="title4" class="title">Název1</p>
+                    <div id="campaign_info4" class="campaign_info">
+                        <div id="players_number"><p>4</p><span>Icon</span></div>
+                        <div id="session_number"><p>7</p><span>Icon</span></div>
+                        <div id="session_date"><p>01:07:2023</p><span>Icon</span></div>
+                    </div>
+                </div>
+                <div class="campaign box-shadow-3d">
+                    <div id="campaign5" class="background_image"></div>
+                    <div id="banner_5" class="banner_transition" onclick="location.href = './test2.html';" onmouseenter="addBlur(this)" onmouseout="removeBlur(this)"></div>
+                    <p id="title5" class="title">Název2</p>
+                    <div id="campaign_info5" class="campaign_info">
+                        <div id="players_number"><p>4</p><span>Icon</span></div>
+                        <div id="session_number"><p>7</p><span>Icon</span></div>
+                        <div id="session_date"><p>01:07:2023</p><span>Icon</span></div>
+                    </div>
+                </div>
+                <div class="campaign box-shadow-3d">
+                    <div id="campaign6" class="background_image"></div>
+                    <div id="banner_6" class="banner_transition" onclick="location.href = './test2.html';" onmouseenter="addBlur(this)" onmouseout="removeBlur(this)"></div>
+                    <p id="title6" class="title">Název3</p>
+                    <div id="campaign_info6" class="campaign_info">
+                        <div id="players_number"><p>4</p><span>Icon</span></div>
+                        <div id="session_number"><p>7</p><span>Icon</span></div>
+                        <div id="session_date"><p>01:07:2023</p><span>Icon</span></div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <script>
+            function addBlur(element) {
+                let id = element.id;
+                id = id.split('_');
+                id = id[1];
+
+                const background = document.getElementById("campaign" + id);
+                background.classList.add('blur');
+                const title = document.getElementById("title" + id);
+                title.style.opacity = "0";
+                const campaign_info = document.getElementById("campaign_info" + id);
+                campaign_info.style.opacity = "1";
+            }
+
+            function removeBlur(element) {
+                let id = element.id;
+                id = id.split('_');
+                id = id[1];
+
+                const background = document.getElementById("campaign" + id);
+                background.classList.remove('blur');
+                const title = document.getElementById("title" + id);
+                title.style.opacity = "1";
+                const campaign_info = document.getElementById("campaign_info" + id);
+                campaign_info.style.opacity = "0";
+            }
+
+
+//            logMovies();
+//            async function logMovies() {
+//                const response = await fetch("http://192.168.0.133:8000/campaigns/");
+//                const movies = await response.json();
+//                console.log(movies);
+//                const test = document.getElementById("player_cmp");
+//                movies.forEach((item, index, arr) => {
+//                    var name = arr[index].name;
+//                    console.log(item);
+//
+//                    var html = '<div class="campaign box-shadow-3d">\n\
+//                    <div id="campaign' + index + '" class="background_image"></div>\n\
+//                    <div id="banner_' + index + '" class="banner_transition" onmouseenter="addBlur(this)" onmouseout="removeBlur(this)"></div>\n\
+//                    <p id="title' + index + '" class="title">' + name + '</p>\n\
+//                    <div id="campaign_info' + index + '" class="campaign_info">\n\
+//                        <div id="players_number"><p>4</p><span>Icon</span></div>\n\
+//                        <div id="session_number"><p>7</p><span>Icon</span></div>\n\
+//                        <div id="session_date"><p>01:07:2023</p><span>Icon</span></div>\n\
+//                    </div>\n\
+//                </div>';
+//
+//                    test.insertAdjacentHTML('beforeend', html);
+//                });
+
+//                test.textContent = movies[0]['name'];
+//            }
+        </script>
+    </body>
+</html>

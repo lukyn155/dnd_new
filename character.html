@@ -25,29 +25,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 --fourth: #EEEEEE;
             }
 
-            input[type="number"]::-webkit-inner-spin-button,
-            input[type="number"]::-webkit-outer-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-            }
-
-            input {
-                border: none;
-                /*border-bottom: 2px solid black;*/
-                background-color: transparent;
-                text-align: center;
-                -webkit-appearance: none;
-                -moz-appearance: textfield;
-                appearance: textfield;
-                font: inherit;
-                margin: 0;
-                padding: 0;
-            }
-
-            input:focus {
-                outline: none;
-            }
-
             * {
                 margin: 0;
                 padding: 0;
@@ -103,10 +80,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
             }
 
-            #header {
-                /*background-image: linear-gradient(to bottom right, var(--grey), var(--black));*/
-            }
-
             .title h1 {
                 padding-top: 10px;
             }
@@ -151,26 +124,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 align-items: center;
                 font-size: 20px;
                 font-weight: bold;
+                /*background-color: var(--black);*/
             }
 
             #details {
-                height: 1100px;
+                height: 900px;
                 flex-basis: 50%;
                 /*flex-grow: 2;*/
                 display: grid;
                 grid-template-areas:
+                    'atributes insp_ini insp_ini'
+                    'atributes skills defense'
                     'atributes skills spell_slots'
-                    'atributes skills saving_passive'
-                    'atributes skills weapons'
-                    'spells spells spells';
+                    'atributes weapons weapons';
+                /*                grid-template-areas:
+                                    'atributes fit_bonus insp_ini speed'
+                                    'atributes skills defense recover_death'
+                                    'atributes skills saving_passive play_notes'
+                                    'atributes skills spell_slots play_notes'
+                                    'atributes skills weapons weapons'
+                                    'gear gear abilities abilities';*/
+                /*grid-template-columns: minmax(0, 10%) minmax(0, 20%) minmax(0,35%) minmax(0,35%);*/
                 grid-template-columns: minmax(0, 13%) minmax(0, 25%) minmax(0,67%);
-                grid-template-rows: minmax(0,28%) minmax(0,22%) minmax(0,25%) minmax(0,25%);
+                /*grid-template-rows: minmax(0,7%) minmax(0,17%) minmax(0,17%) minmax(0,17%) minmax(0,17%) minmax(0,25%);*/
+                grid-template-rows: minmax(0,12%) minmax(0,33%) minmax(0,33%) minmax(0,22%);
                 background-color: var(--black);
                 gap: 10px;
                 border: 10px solid var(--black);
                 border-top: none;
             }
-
+            #details article {
+                padding: 15px 10px 15px 10px;
+            }
             #atributes {
                 grid-area: atributes;
                 display: flex;
@@ -189,12 +174,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 flex-flow: column;
                 justify-content: space-between;
                 align-items: center;
-            }
-
-            #atributes .atribute input {
-                width: 55px;
-                font-size: 40px;
-                font-weight: bold;
             }
 
             #atributes .atribute div:nth-child(1) {
@@ -255,26 +234,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 margin-left: auto;
                 margin-right: auto;
             }
-
-            #skills li {
-                position: relative;
-                margin-bottom: 10px;
-            }
-
-            #skills li input {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                width: 30px;
-                font-weight: 500;
-                font-size: 14px;
-                border-bottom: 2px solid black;
-            }
-
-            #skills li span {
-                margin-left: 7px;
-            }
-
             #skills li:before {
                 content: '\2606';
                 /*content: '\2605';*/
@@ -311,14 +270,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 display: flex;
                 flex-flow: column;
                 justify-content: space-between;
+                border-bottom: 2px solid var(--brown);
+                padding-top: 5px;
+                padding-bottom: 5px;
             }
+
+            /*            #recover_death .inner_header:nth-child(1) {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 11px;
+                        }*/
 
             #saving_passive {
                 grid-area: saving_passive;
                 display: flex;
                 flex-flow: column;
                 justify-content: space-between;
+
+                border-bottom: 2px solid var(--brown);
+                padding-top: 5px;
+                padding-bottom: 5px;
             }
+
+            /*            #saving_passive .inner_header {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 11px;
+                        }*/
 
             #saving_passive li {
                 list-style: none;
@@ -331,6 +311,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             }
             #play_notes {
                 grid-area: play_notes;
+
+                border-bottom: 2px solid var(--brown);
+                padding-top: 5px;
+                padding-bottom: 5px;
                 min-height: 100px;
             }
             #spell_slots {
@@ -356,42 +340,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 text-align: left;
             }
 
-            #spells {
-                grid-area: spells;
-            }
-
-            #spells table td, #spells table th {
-                padding: 10px;
-            }
-
-            #spells table th {
-                text-align: left;
-            }
-
-            #adding_skills {
-                flex-grow: 2;
-                display: flex;
-                row-gap: 10px;
-                flex-direction: column;
-                background-color: var(--black);
-                border-radius: 10px;
-                height: 100%;
-            }
-
-            .tab {
-                position: relative;
-                box-shadow: 0 0 10px black;
-                border-radius: 10px;
-                background-image: linear-gradient(to bottom right, var(--grey), var(--black));
-                padding: 15px 10px 15px 10px;
-            }
-
             #gear {
                 grid-area: gear;
-                padding-top: 15px;
+
+                border-bottom: 2px solid var(--brown);
+                padding-top: 5px;
                 padding-bottom: 5px;
-                height: 550px;
-                border-radius: 15px;
+                min-height: 100px;
             }
 
             #gear #equip_tabs li {
@@ -404,9 +359,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 border-radius: 10px;
                 padding-top: 7px;
                 padding-bottom: 7px;
+                background-color: var(--black);
                 font-weight: bold;
             }
-
+            
             #gear #equip_tabs li:first-child {
                 color: var(--brown);
             }
@@ -421,7 +377,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             }
 
             #gear #equip_tabs li:hover {
-                background-color: transparent;
+                background-color: var(--grey);
                 cursor: pointer;
             }
 
@@ -437,11 +393,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 padding: 7px;
                 font-weight: bold;
             }
-
+            
             #gear .item_names li:first-child {
                 color: var(--brown);
             }
-
+            
             #gear .item_names li:nth-child(even) {
                 background-color: var(--black);
             }
@@ -455,12 +411,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 color: var(--brown);
             }
 
-            #gear .inventory {
-                background-color: transparent;
-            }
-
             #abilities {
                 grid-area: abilities;
+
+                border-bottom: 2px solid var(--brown);
+                padding-top: 5px;
+                padding-bottom: 5px;
                 min-height: 100px;
             }
 
@@ -473,7 +429,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             .square {
                 width: 35px;
                 height: 35px;
-                border: 3px solid var(--brown);
+                border: 3px solid black;
                 border-radius: 5px;
                 text-align: center;
                 flex-shrink: 1;
@@ -486,11 +442,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 flex-flow: column;
                 align-items: center;
                 font-weight: bold;
-                width: 50px;
-                height: 35px;
+                width: 100px;
+                height: 50px;
+                /*border: 3px solid black;*/
                 border: 3px solid var(--brown);
-                font-size: 20px;
                 border-radius: 5px;
+            }
+
+            #details article {
+                background-color: var(--grey);
             }
 
             #light_armor::before {
@@ -530,8 +490,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 width: 90%;
                 height: 1.5em;
                 background-color: black;
-                margin-left: auto;
-                margin-right: auto;
             }
 
             .progressbar {
@@ -546,7 +504,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                transition: width 1s ease-out;
+                transition: 1s;
             }
 
             .progress-radius {
@@ -561,26 +519,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
             aside ul li{
                 list-style: none;
-                width: 100%;
+                border-bottom: 10px solid var(--black);
+                width: 100;
                 aspect-ratio: 1/1;
                 display: flex;
                 justify-content: center;
-                margin-left: auto;
-                margin-right: auto;
                 align-items: center;
-                border-radius: 10px;
+            }
+
+            aside ul li {
                 position: relative;
-                background: none;
-                transition: box-shadow 0.3s, background 2s ease;
             }
 
             aside ul li:hover {
-                box-shadow: 0 0 5px 5px black;
+                background-color: var(--black);
                 cursor: pointer;
-            }
-
-            aside ul li:active {
-                box-shadow: inset 0 0 5px 5px black;
             }
 
             .close_button {
@@ -614,9 +567,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
             [data-title]:hover:after {
                 opacity: 1;
-                /*transition: all 0.1s ease 0.5s;*/
-                transition: all 0.1s ease;
-                transition-delay: 0.5s;
+                transition: all 0.1s ease 0.5s;
                 visibility: visible;
             }
             [data-title]:after {
@@ -641,70 +592,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             [data-title] {
                 position: relative;
             }
-
-            #health_box {
-                flex-grow: 1;
-                display: grid;
-                grid-template-areas:
-                    'current max temp'
-                    'current_hp max_hp temp_hp'
-                    'hitpoints hitpoints hitpoints';
-                grid-template-columns: minmax(0, 33%) minmax(0, 33%) minmax(0,33%);
-                grid-template-rows: minmax(0,33%) minmax(0,33%) minmax(0,33%);
-                font-weight: 600;
-            }
-
-            #health_box div {
-                text-align: center;
-            }
-
-
-            /* Testování vzhledu pro select */
-
-            select {
-                /* Reset Select */
-                appearance: none !important;
-                outline: 10px red;
-                border: 0;
-                box-shadow: none;
-                /* Personalize */
-                flex: 1;
-                padding: 0 1em;
-                color: #fff !important;
-                background-color: var(--darkgray) !important;
-                background-image: none;
-                cursor: pointer;
-            }
-            /* Remove IE arrow */
-            select::-ms-expand {
-                display: none;
-            }
-            /* Custom Select wrapper */
-            .select {
-                position: relative;
-                display: flex;
-                width: 75px;
-                height: 30px;
-                border-radius: .25em;
-                overflow: hidden;
-                margin-right: 5px;
-            }
-            /* Arrow */
-            .select::after {
-                content: '\25BC';
-                position: absolute;
-                font-size: 10px;
-                top: 0;
-                right: 0;
-                padding: 5px;
-                background-color: var(--grey) !important;
-                transition: .25s all ease;
-                pointer-events: none;
-            }
-            /* Transition */
-            .select:hover::after {
-                color: var(--brown);
-            }
         </style>
     </head>
     <body>
@@ -714,150 +601,187 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 <h1>Character sheet</h1>
             </div>
             <nav>
-                <a class="nav_button" href="index.html"><div>Kampaně</div></a>
-                <a class="nav_button" href="new_character.html"><div>Postava</div></a>
+                <a class="nav_button" href="index.php"><div>Kampaně</div></a>
+                <a class="nav_button" href="character.php"><div>Postava</div></a>
             </nav>
         </header>
-        <main style="width: 100%; overflow: hidden; flex-grow: 2; display: flex; flex-flow: column; flex-wrap: nowrap;">
-            <section id="header" style="flex-shrink: 1; display: flex; flex-flow: row; flex-wrap: nowrap; flex-basis: 40px;">
-                <article style="width: 12%; display: flex; flex-direction: column; padding: 15px 10px 15px; display: relative;">
-                    <h2><input style="text-align: left;" type="text" value="Castilla de Fluo"/></h2>
-                    <div style="width: 100%; height: auto; display: flex; flex-direction: row; flex-wrap: wrap;">
-                        <div class="select" style="width: auto; padding-right: 10px;">
-                            <select>
-                                <option value="Bard" selected="">Bard</option>
-                                <option value="Mage">Mage</option>
-                                <option value="Barbarian">Barbarian</option>
-                            </select>
-                        </div>
-                        <div class="select" style="width: auto; padding-right: 10px;">
-                            <select>
-                                <option value="Bravery" selected="">Bravery</option>
-                                <option value="Vseumel">Všeuměl</option>
-                            </select>
-                        </div>
-                        <div class="select" style="width: auto; padding-right: 10px;">
-                            <select>
-                                <option value="Halfling" selected="">Halfling</option>
-                                <option value="Elf">Elf</option>
-                                <option value="Human">Human</option>
-                            </select>
-                        </div>
-                        <div class="select" style="width: auto; padding-right: 10px;">
-                            <select>
-                                <option value="Entertainer" selected="">Entertainer</option>
-                                <option value="Warrior">Warrior</option>
-                                <option value="Thief">Thief</option>
-                            </select>
-                        </div>
-                        <!--<input style="text-align: left; opacity: 0.5; flex-shrink: 1;" size="5" type="text" value="Bravery"/>-->
-                        <!--<input style="text-align: left; opacity: 0.5; flex-shrink: 1;" size="5" type="text" value="Halfling"/>-->
-                        <!--<input style="text-align: left; opacity: 0.5; flex-shrink: 1;" size="10" type="text" value="Entertainer"/>-->
+        <main style="width: 100%; overflow: hidden; flex-grow: 2; display: flex; flex-flow: column; flex-wrap: nowrap; background-color: var(--grey);">
+            <section id="header" style="flex-shrink: 1; display: flex; flex-flow: row; flex-wrap: nowrap; flex-basis: 150px;">
+                <article style="flex-grow: 1; display: flex; justify-content: space-between; flex-direction: column; border: 10px solid var(--black); padding: 15px 10px 15px; display: relative;">
+                    <div style="margin-top: 10px; display: flex; justify-content: center; align-items: center;">
+                        <h2 id="character_name">Castila de Fluo</h2>
                     </div>
-                    <div style="width: 100%; height: auto; display: flex; flex-direction: row;"><span style="margin-right: 10px;">Úroveň</span><input style="text-align: left;" size="1" type="text" value="5"/></div>
-                </article>
-                <!--                <article style="width: 12%; display: flex; flex-direction: column; padding: 15px 10px 15px; display: relative;">
-                                    <h2>Castilla de Fluo</h2>
-                                    <div><span style="opacity: 0.5;">Bard</span> <span style="opacity: 0.5;">Bravery</span> <span style="opacity: 0.5;">Halfling</span> <span style="opacity: 0.5;">Entertainer</span></div>
-                                    <div>Úroveň <span>5</span></div>
-                                </article>-->
-                <article style="flex-grow: 1; width: 20%; min-width: 300px; position: relative; flex-direction: column;" class="center">
-                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">Body výdrže (BV)</div>
-                    <div class="progress-container progress-radius">
-                        <p style="position: absolute; width: 100%; z-index: 1; top: 2px; text-align: center; font-weight: bold; margin-left: auto; margin-right: auto;"><input style="width: 30px; font-size: 16px; font-weight: bold;" type="number" value="24" onchange="hpchange(this)" /> / <span id="max_level">40</span></p>
-                        <div class="progressbar progress-radius"></div>
+                    <div class="center">
+                        <div class="progress-container progress-radius">
+                            <div class="progressbar progress-radius"></div>
+                        </div>
                     </div>
+                    <p style="position: relative; top: -30px; width: 100px; z-index: 1; text-align: center; font-weight: bold; margin-left: auto; margin-right: auto;">24 / 40 HP</p>
                 </article>
                 <article style="flex-grow: 2; display: flex; align-items: stretch;">
-                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center"><input type="number" value="3"/></div><p style="flex-shrink: 2; flex-basis: 100%; font-size: 20px; font-weight: bold;">Zdatnostní bonus</p></div>
-                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center">&#10004;</div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Inspirace</p></div>
-                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center"><input type="number" value="3"/></div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Iniciativa</p></div>
-                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center"><input type="number" value="3"/></div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Rychlost</p></div>
-                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="rectangle center"><input type="number" value="16"/></div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Zbroj (OČ)</p></div>
+                    <ul id="char_base">
+                        <li id="character_class">Bard Lvl. 3</li>
+                        <!--<li id="background">Entertainer</li>-->
+                        <li id="background"></li>
+                        <li>Lukáš</li>
+                        <!--<li id="race">Halfling</li>-->
+                        <li id="race"></li>
+                        <!--<li id="alignment">Neutral Good</li>-->
+                        <li id="alignment"></li>
+                        <li>0</li>
+                    </ul>
                 </article>
-
-                <!--                <article style="flex-grow: 2; display: flex; align-items: stretch;">
-                                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center">3</div><p style="flex-shrink: 2; flex-basis: 100%; font-size: 20px; font-weight: bold;">Zdatnostní bonus</p></div>
-                                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center">&#10004;</div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Inspirace</p></div>
-                                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center">3</div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Iniciativa</p></div>
-                                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center">3</div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Rychlost</p></div>
-                                    <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="rectangle center">16</div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Zbroj (OČ)</p></div>
-                                </article>-->
             </section>
             <section style="width: 100%; display: flex; flex-direction: row;">
                 <section id="details">
-                    <article id="atributes" class="tab">
+                    <article id="atributes">
                         <div class="atribute">
                             <div>Síla</div>
-                            <div><input type="number" value="11"/></div>
+                            <div>11</div>
                             <div>+0</div>
                         </div>
                         <div class="atribute">
                             <div>Obratnost</div>
-                            <div><input type="number" value="17"/></div>
+                            <div>17</div>
                             <div>+3</div>
                         </div>
                         <div class="atribute">
                             <div>Odolnost</div>
-                            <div><input type="number" value="13"/></div>
+                            <div>13</div>
                             <div>+1</div>
                         </div>
                         <div class="atribute">
                             <div>Inteligence</div>
-                            <div><input type="number" value="15"/></div>
+                            <div>15</div>
                             <div>+2</div>
                         </div>
                         <div class="atribute">
                             <div>Moudrost</div>
-                            <div><input type="number" value="15"/></div>
+                            <div>15</div>
                             <div>+2</div>
                         </div>
                         <div class="atribute">
                             <div>Charisma</div>
-                            <div><input type="number" value="16"/></div>
+                            <div>16</div>
                             <div>+3</div>
                         </div>
                     </article>
-                    <article id="skills" class="tab">
+                    <!--<article id="fit_bonus"><div class="square center">3</div><p style="flex-shrink: 2; flex-basis: 80%; font-size: 20px; font-weight: bold;">Zdatnostní bonus</p></article>-->
+                    <article id="insp_ini">
+                        <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center">3</div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Zdatnostní bonus</p></div>
+                        <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center">&#10004;</div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Inspirace</p></div>
+                        <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center">3</div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Iniciativa</p></div>
+                        <div class="center" style="display: flex; flex-flow: row; width: 50%; column-gap: 20px;"><div class="square center">3</div><p style="flex-shrink: 2; flex-basis: 50%; font-size: 20px; font-weight: bold;">Rychlost</p></div>
+                    </article>
+                    <!--                    <article id="speed">
+                                            <div class="inner_header">RYCHLOST (DLE NALOŽENÍ)</div>
+                                            <div style="display: flex; flex-flow: row; justify-content: space-around">
+                                                <div id="light_armor" style="position: relative; border-bottom: 1px solid black; width: 15%; text-align: center;">5</div>
+                                                <div id="medium_armor" style="position: relative; border-bottom: 1px solid black; width: 15%; text-align: center;"></div>
+                                                <div id="heavy_armor" style="position: relative; border-bottom: 1px solid black; width: 15%; text-align: center;"></div>
+                                            </div>
+                                        </article>-->
+                    <article id="skills">
                         <div class="inner_header">DOVEDNOSTI</div>
                         <ul>
                             <li class="name">SÍLA</li>
-                            <li><span>Atletika</span><input type=text value="+1"/></li>
+                            <li>Atletika</li>
                         </ul>
                         <ul>
                             <li class="name">OBRATNOST</li>
-                            <li class="black_star"><span>Akrobacie</span><input type="text" value="+1"/></li>
-                            <li class="black_star"><span>Čachry</span><input type="text" value="+1"/></li>
-                            <li class="black_star"><span>Nenápadnost</span><span><input type="text" value="+1"/></span></li>
+                            <li class="black_star">Akrobacie</li>
+                            <li class="black_star">Čachry</li>
+                            <li class="black_star">Nenápadnost</li>
                         </ul>
                         <ul>
                             <li class="name">INTELIGENCE</li>
-                            <li><span>Historie</span><input type="text" value="+1"/></li>
-                            <li><span>Mystika</span><input type="text" value="+1"/></li>
-                            <li><span>Náboženství</span><input type="text" value="+1"/></li>
-                            <li><span>Pátrání</span><input type="text" value="+1"/></li>
-                            <li><span>Příroda</span><input type="text" value="+1"/></li>
+                            <li>Historie</li>
+                            <li>Mystika</li>
+                            <li>Náboženství</li>
+                            <li>Pátrání</li>
+                            <li>Příroda</li>
                         </ul>
                         <ul>
                             <li class="name">MOUDROST</li>
-                            <li><span>Lékařství</span><input type="text" value="+1"/></li>
-                            <li><span>Ovládání zvířat</span><input type="text" value="+1"/></li>
-                            <li><span>Přežití</span><input type="text" value="+1"/></li>
-                            <li class="black_star"><span>Vhled</span><input type="text" value="+1"/></li>
-                            <li><span>Vnímání</span><input type="text" value="+1"/></li>
+                            <li>Lékařství</li>
+                            <li>Ovládání zvířat</li>
+                            <li>Přežití</li>
+                            <li class="black_star">Vhled</li>
+                            <li>Vnímání</li>
                         </ul>
                         <ul>
                             <li class="name">CHARISMA</li>
-                            <li class="black_star"><span>Klamání</span><input type="text" value="+1"/></li>
-                            <li class="black_star"><span>Přesvědčení</span><input type="text" value="+1"/></li>
-                            <li class="black_star"><span>Vystupování</span><input type="text" value="+1"/></li>
-                            <li><span>Zastrašování</span><input type="text" value="+1"/></li>
+                            <li class="black_star">Klamání</li>
+                            <li class="black_star">Přesvědčování</li>
+                            <li class="black_star">Vystupování</li>
+                            <li>Zastrašování</li>
                         </ul>
                     </article>
-                    <article id="spell_slots" class="tab">
+                    <article id="defense">
+                        <div class="inner_header">OBRANNÉ ČÍSLO</div>
+                        <div style="display: flex; flex-flow: row; justify-content: space-around;">
+                            <div class="rectangle"><div>Zbroj</div><div>16</div></div>
+                            <div class="rectangle"><div>Beze zbr.</div><div></div></div>
+                            <div class="rectangle"><div>Jiné</div><div></div></div>
+                        </div>
+                        <ul>
+                            <li class="black_star">Lehké</li>
+                            <li>Střední</li>
+                            <li>Těžké</li>
+                            <li>Štít</li>
+                        </ul>
+                    </article>
+                    <!--                    <article id="recover_death" style="border: none;">
+                                            <div style="display: flex; flex-direction: row; justify-content: space-around; flex-shrink: 1">
+                                                <div class="inner_header" style="width: 45%;">KOSTKY OBNOVY</div>
+                                                <div class="inner_header" style="width: 45%;">SMRT</div>
+                                            </div>
+                                            <div style="display: flex; flex-flow: row; flex-grow: 2; align-items: center;">
+                                                <div style="width: 50%; text-align: center;">Max.<span style="font-size: 25px; margin-left: 10px; font-weight: bold;">5D8</span></div>
+                                                <div style="width: 50%; display: flex; flex-flow: column; align-items: center;">
+                                                    <ol style="display: flex; flex-flow: row; list-style: none; font-size: 25px;">
+                                                        <li>&#9825;</li>
+                                                        <li>&#9825;</li>
+                                                        <li>&#9825;</li>
+                                                    </ol>
+                                                    <ol style="display: flex; flex-flow: row; list-style: none; font-size: 25px;">
+                                                        <li>&#128128;</li>
+                                                        <li>&#128128;</li>
+                                                        <li>&#128128;</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </article>-->
+                    <!--                    <article id="saving_passive" style="border: none;">
+                                            <div style="display: flex; flex-direction: row; justify-content: space-around; flex-grow: 1;">
+                                                <div class="inner_header" style="width: 45%;">ZÁCHRANNÉ HODY</div>
+                                                <div class="inner_header" style="width: 45%;">PASIVNÍ DOVEDNOST</div>
+                                            </div>
+                                            <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; flex-grow: 2">
+                                                <ul>
+                                                    <li>Síla</li>
+                                                    <li class="black_star">Obratnost</li>
+                                                    <li>Odolnost</li>
+                                                    <li>Inteligence</li>
+                                                    <li>Moudrost</li>
+                                                    <li class="black_star">Charisma</li>
+                                                </ul>
+                                                <ul>
+                                                    <li>Atletika</li>
+                                                    <li>Akrobacie</li>
+                                                    <li>Nenápadnost</li>
+                                                    <li>Vhled</li>
+                                                    <li>Vnímání</li>
+                                                    <li></li>
+                                                </ul>
+                                            </div>
+                                        </article>-->
+                    <!--                    <article id="play_notes" style="border: none;">
+                                            <div class="inner_header">POZNÁMKY K HRANÍ POSTAVY</div>
+                                        </article>-->
+                    <article id="spell_slots">
                         <div class="inner_header">KOUZLA / ALCHYMISTICKÁ TRUHLA</div>
-                        <div style="display: flex; flex-flow: row; justify-content: space-around;"><div style="font-weight: bold;">Sesílací vlastnost</div><div style="font-weight: bold;">Út bonus</div><div style="font-weight: bold;">SO záchrany</div></div>
-                        <div style="display: flex; flex-flow: row; justify-content: space-around;"><div style="border-bottom: 1px solid black"><input type="text" size="9" value="CHARISMA"/></div><div style="border-bottom: 1px solid black"><input type="text" size="2" value="+5"/></div><div style="border-bottom: 1px solid black"><input type="number" size="2" value="14"/></div></div>
+                        <div style="display: flex; flex-flow: row; justify-content: space-around;"><div style="border-bottom: 1px solid black">CHARISMA</div><div style="border-bottom: 1px solid black">+5</div><div style="border-bottom: 1px solid black">14</div></div>
                         <div style="display: flex; flex-flow: row; justify-content: space-between;">
                             <ul style="display: flex; flex-flow: row; width: 50%; justify-content: center; gap: 5px;">
                                 <li><div style="text-align: center;">1</div><input name="first[]" type="checkbox" checked=""/><input name="first[]" type="checkbox" checked=""/><input name="first[]" type="checkbox" checked=""/><input name="first[]" type="checkbox" checked=""/></li>
@@ -883,7 +807,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             </div>
                         </div>
                     </article>
-                    <article id="weapons" class="tab">
+                    <article id="weapons">
                         <div class="inner_header">ZBRANĚ</div>
                         <table style="width: 100%">
                             <tr>
@@ -900,55 +824,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             </tr>
                         </table>
                     </article>
-                    <article id="spells" class="tab">
-                        <div class="inner_header">KOUZLA</div>
-                        <table style="width: 100%">
-                            <tr>
-                                <th>S</th><th>Název</th><th>Záchraný hod</th><th>Složky</th><th>Dosah</th><th>Trvání</th><th>Poznámka</th>
-                            </tr>
-                            <tr>
-                                <td>1</td><td>Hromová vlna</td><td>Odolnost</td><td>V,P</td><td>4 sáhy okolo</td><td>Hned</td><td>2k8 a odstrčí je o 2 sáhy</td>
-                            </tr>
-                            <tr>
-                                <td>3</td><td>Strach</td><td>Moudrost</td><td>V,P,S</td><td>6 sáhů</td><td>až 1min.</td><td>Nepřátelé okamžitě utíkají z dohledu</td>
-                            </tr>
-                            <tr>
-                                <td>C</td><td>Zlomyslný výsměch</td><td>Moudrost</td><td>V</td><td>12 sáhů</td><td>Ihned</td><td>2k4 a nevýhodu na útok</td>
-                            </tr>
-                        </table>
-                    </article>
-                    <article id="saving_passive" class="tab">
-                        <div style="display: flex; flex-direction: row; justify-content: space-around; flex-grow: 1;">
-                            <div class="inner_header" style="width: 45%;">ZÁCHRANNÉ HODY</div>
-                            <div class="inner_header" style="width: 45%;">PASIVNÍ DOVEDNOST</div>
-                            <!--                            <div class="close_button" onclick="removeMe(this)">
-                                                            <span></span>
-                                                            <span></span>
-                                                        </div>-->
-                        </div>
-                        <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; flex-grow: 2">
-                            <ul>
-                                <li>Síla</li>
-                                <li class="black_star">Obratnost</li>
-                                <li>Odolnost</li>
-                                <li>Inteligence</li>
-                                <li>Moudrost</li>
-                                <li class="black_star">Charisma</li>
-                            </ul>
-                            <ul>
-                                <li>Atletika</li>
-                                <li>Akrobacie</li>
-                                <li>Nenápadnost</li>
-                                <li>Vhled</li>
-                                <li>Vnímání</li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </article>
+                    <!--                    <article id="gear" style="border: none;">
+                                            <div class="inner_header">VÝBAVA</div>
+                                        </article>
+                                        <article id="abilities" style="border: none;">
+                                            <div class="inner_header">SCHOPNOSTI</div>
+                                        </article>-->
                 </section>
-                <section style="width: 50%; display: flex; flex-direction: row; align-items: stretch;">
-                    <article id="adding_skills">
-                        <article id="gear" class="tab">
+                <section style="width: 50%; height: 900px; display: flex; flex-direction: row; align-items: stretch;">
+                    <article id="adding_skills" style="flex-grow: 2; padding: 10px; display: flex; row-gap: 20px; flex-direction: column; border-bottom: 10px solid var(--black);">
+                        <article id="gear">
                             <div style="display: flex; flex-direction: row; justify-content: space-around; flex-shrink: 1">
                                 <div class="inner_header" style="width: 92%;">VÝBAVA</div>
                                 <div class="close_button" onclick="removeMe(this)">
@@ -1122,32 +1007,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             </div>
                         </article>
                     </article>
-                    <aside style="width: 10%; min-width: 100px; margin-left: 10px; user-select: none; border-radius: 10px; padding: 0;" class="tab">
-                        <!--<aside style="width: 10%; min-width: 100px; margin-left: 10px; border-left: 10px solid var(--black); border-bottom: 10px solid var(--black); user-select: none; background-color: var(--black); box-shadow: 0 0 15px black; border-radius: 10px;">-->
+                    <aside style="width: 10%; min-width: 100px; border-left: 10px solid var(--black); border-bottom: 10px solid var(--black); user-select: none;">
                         <ul>
-                            <li onclick="addDeath(this)" data-title="Obnova / Smrt">
-                                <span id="recover_death_icon" class="material-symbols-outlined" style="color: var(--white); scale: 2;">
+                            <li onclick="addDeath()" data-title="Obnova / Smrt">
+                                <span class="material-symbols-outlined" style="color: var(--white); scale: 2;">
                                     health_metrics
                                 </span>
                             </li>
-                            <li onclick="addNotes(this)" data-title="Poznámky">
-                                <span id="play_notes_icon" class="material-symbols-outlined" style="color: var(--white); scale: 2;">
+                            <li onclick="addNotes()" data-title="Poznámky">
+                                <span class="material-symbols-outlined" style="color: var(--white); scale: 2;">
                                     description
                                 </span>
                             </li>
-                            <li onclick="addPassiveSkills(this)" data-title="Hody / Dovednosti">
-                                <i id="saving_passive_icon" class="fa-sharp fa-solid fa-dice-d20" style="color: var(--white); scale: 2;"></i>
+                            <li onclick="addPassiveSkills()" data-title="Hody / Dovednosti">
+                                <i class="fa-sharp fa-solid fa-dice-d20" title="passive_skills" style="color: var(--white); scale: 2;"></i>
                             </li>
-                            <li onclick="addEquipment(this)" data-title="Výbava">
-                                <span id="gear_icon" class="material-symbols-outlined"  style="color: var(--white); scale: 2;">
+                            <li onclick="addEquipment()" data-title="Výbava">
+                                <span class="material-symbols-outlined"  style="color: var(--white); scale: 2;">
                                     backpack
                                 </span>
                             </li>
-                            <li onclick="addAbilities(this)" data-title="Schopnosti">
-                                <i id="abilities_icon" class="fa-solid fa-bolt" style="color: var(--white); scale: 2;"></i>
-                            </li>
-                            <li onclick="addCounters(this)" data-title="Countery pro schopnosti">
-                                <i class="fa-solid fa-arrow-up-9-1" style="color: var(--white); scale: 2;"></i>
+                            <li onclick="addAbilities()" data-title="Schopnosti">
+                                <i class="fa-solid fa-bolt" title="abilities" style="color: var(--white); scale: 2;"></i>
                             </li>
                         </ul>
                     </aside>
@@ -1155,7 +1036,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             </section>
         </main>
         <script>
-            window.addEventListener("load", () => {
+            window.addEventListener("load", (event) => {
                 var progress = document.getElementsByClassName("progressbar");
 //                console.log(progress);
                 if (progress[0].offsetWidth === progress[0].parentElement.offsetWidth) {
@@ -1169,30 +1050,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 }
             });
 
-            function hpchange(element) {
-                const progress = element.parentElement.nextElementSibling;
-                const max_level = element.nextElementSibling.textContent;
-                const value = element.value;
-
-                if (parseInt(value) > parseInt(max_level)) {
-                    element.value = max_level;
-                }
-
-                let percentage = Math.round((value / max_level) * 100);
-
-                if (percentage >= 100) {
-                    percentage = 100;
-                    progress.style.background = "red";
-                } else {
-                    progress.style.background = "linear-gradient(to right, red 80%, black)";
-                }
-
-                progress.style.width = percentage.toString() + "%";
-            }
-
-            function buttonClick(element) {
-                element.style.boxShadow = "inset 0 0 15px black";
-            }
             function invent(target, element) {
                 const all_inventory = document.getElementsByClassName('inventory');
                 const tabs = element.parentElement.children;
@@ -1201,7 +1058,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     tabs[i].style.color = 'var(--white)';
                 }
                 element.style.color = 'var(--brown)';
-
+                
                 for (var i = 0; i < all_inventory.length; i++) {
                     all_inventory[i].style.display = 'none';
                 }
@@ -1244,32 +1101,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 //                const character_class = document.getElementById("character_class");
 //                character_class.textContent = character.character_class;
 //            }
-            function addingSkills(string, html, element) {
-//                if (element.style.boxShadow === "") {
-//                    element.style.boxShadow = "inset 0 0 5px 5px black";
-//                } else {
-//                    element.style.boxShadow = "";
-//                }
-//                console.log(element.style.background);
-                // Přidání třídy pro změnu pozadí
-
-                // Odebrání třídy pro vrácení původního pozadí
-
-//                console.log(element.classList.includes("new-background")); 
-//                if (element.classList) {
-//                    element.classList.add("new-background");
-////                    element.style.background = "radial-gradient(var(--black) 30%, var(--brown))";
-//                } else {
-//                    element.classList.remove("new-background");
-////                    element.style.background = "";
-//                }
-
-//                if (element.children[0].style.color === "var(--white)") {
-//                    element.children[0].style.color = "var(--brown)";
-//                } else {
-//                    element.children[0].style.color = "var(--white)";
-//                }
-
+            function addingSkills(string, html) {
                 const section = document.getElementById('adding_skills');
                 const array = section.children;
                 if (array.length === 0) {
@@ -1292,10 +1124,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             }
 
 
-            function addDeath(element) {
-
+            function addDeath() {
                 const html = '\
-                <article id="recover_death" class="tab">\n\
+                <article id="recover_death">\n\
                     <div style="display: flex; flex-direction: row; justify-content: space-around; flex-shrink: 1">\n\
                         <div class="inner_header" style="width: 45%;">KOSTKY OBNOVY</div>\n\
                         <div class="inner_header" style="width: 45%;">SMRT</div>\n\
@@ -1320,12 +1151,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                         </div>\n\
                     </div>\n\
                 </article>';
-                addingSkills('recover_death', html, element);
+                addingSkills('recover_death', html);
             }
 
-            function addNotes(element) {
+            function addNotes() {
                 const html = '\
-                <article id="play_notes" class="tab">\n\
+                <article id="play_notes">\n\
                         <div style="display: flex; flex-direction: row; justify-content: space-around; flex-shrink: 1">\n\
                             <div class="inner_header" style="width: 92%;">POZNÁMKY K HRANÍ POSTAVY</div>\n\
                             <div class="close_button" onclick="removeMe(this)">\n\
@@ -1334,12 +1165,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             </div>\n\
                         </div>\n\
                 </article>';
-                addingSkills('play_notes', html, element);
+                addingSkills('play_notes', html);
             }
 
-            function addPassiveSkills(element) {
+            function addPassiveSkills() {
                 const html = '\
-                <article id="saving_passive" class="tab">\n\
+                <article id="saving_passive">\n\
                         <div style="display: flex; flex-direction: row; justify-content: space-around; flex-grow: 1;">\n\
                             <div class="inner_header" style="width: 45%;">ZÁCHRANNÉ HODY</div>\n\
                             <div class="inner_header" style="width: 45%;">PASIVNÍ DOVEDNOST</div>\n\
@@ -1367,12 +1198,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             </ul>\n\
                         </div>\n\
                     </article>';
-                addingSkills('saving_passive', html, element);
+                addingSkills('saving_passive', html);
             }
 
-            function addEquipment(element) {
+            function addEquipment() {
                 const html = '\
-                <article id="gear" class="tab">\n\
+                <article id="gear">\n\
                         <div style="display: flex; flex-direction: row; justify-content: space-around; flex-shrink: 1">\n\
                             <div class="inner_header" style="width: 92%;">VÝBAVA</div>\n\
                             <div class="close_button" onclick="removeMe(this)">\n\
@@ -1381,12 +1212,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             </div>\n\
                         </div>\n\
                 </article>';
-                addingSkills('gear', html, element);
+                addingSkills('gear', html);
             }
 
-            function addAbilities(element) {
+            function addAbilities() {
                 const html = '\
-                <article id="abilities" class="tab">\n\
+                <article id="abilities">\n\
                         <div style="display: flex; flex-direction: row; justify-content: space-around; flex-shrink: 1">\n\
                             <div class="inner_header" style="width: 92%;">SCHOPNOSTI</div>\n\
                             <div class="close_button" onclick="removeMe(this)">\n\
@@ -1395,14 +1226,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             </div>\n\
                         </div>\n\
                 </article>';
-                addingSkills('abilities', html, element);
+                addingSkills('abilities', html);
             }
 
             function removeMe(element) {
                 element.parentElement.parentElement.remove();
-                const id = element.parentElement.parentElement.id;
-                const icon = document.getElementById(id + '_icon');
-                icon.style.color = 'var(--white)';
             }
         </script>
     </body>

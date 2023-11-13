@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DnD template</title>
+        <style>
+            :root {
+                --black: #222831;
+                --grey: #393E46;
+                --brown: #B55400;
+                --white: #EEEEEE;
+
+                --primary: #222831;
+                --secondary: #393E46;
+                --third: #B55400;
+                --fourth: #EEEEEE;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                color: var(--white);
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: var(--black);
+                display: flex;
+                flex-flow: column;
+                min-height: 100vh;
+                width: 100%;
+            }
+
+            header {
+                background-color: var(--black);
+                width: 100%;
+                height: 80px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                /*box-shadow: 0 4px 8px rgba(0, 0, 0, .1);*/
+                box-shadow: 0 15px 40px var(--grey);
+            }
+
+            header .logo {
+                flex-shrink: 1;
+                flex-basis: 20%;
+                align-self: center;
+            }
+
+            header .logo p {
+                font-size: 40px;
+                font-weight: bold;
+            }
+            
+            header .logo img {
+                height: 80px;
+                aspect-ratio: 16/9;
+            }
+
+            header .title {
+                position: relative;
+                margin: 0;
+                height: 70%;
+                background-color: var(--grey);
+                text-align: center;
+                flex-grow: 2;
+                align-self: flex-end;
+                flex-basis: 60%;
+                clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+            }
+
+            .title h1 {
+                padding-top: 10px;
+            }
+
+            nav {
+                flex-shrink: 1;
+                flex-basis: 20%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            nav .nav_button {
+                text-decoration: none;
+                color: black;
+            }
+
+            nav .nav_button div:hover {
+                color: var(--brown);
+            }
+            ul {
+                list-style-type: none;
+            }
+            ul span:nth-child(1) {
+                display: inline-block;
+                /*width: 200px;*/
+                flex-basis: 200px;
+            }
+            li {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            span {
+                /*border: 1px solid black;*/
+            }
+            #sessions {
+                width: 100%;
+            }
+            #sessions li {
+                width: 100%;
+                height: 40px;
+                background-color: black;
+                color: white;
+                font-weight: bold;
+                border: 1px solid white;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                padding: 15px;
+            }
+
+            section article table td:first-child {
+                width: 50%;
+            }
+            
+            details {
+                width: 100%;
+                height: 40px;
+                background-color: var(--black);
+                color: var(--white);
+                font-weight: bold;
+                border: 1px solid var(--black);
+                border-radius: 10px;
+                margin-bottom: 10px;
+                padding: 15px 15px 70px 15px;
+            }
+            
+            details * {
+                color: var(--white);
+            }
+            details:hover {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo"><img src="images/DnD-Symbol.png" alt="logo"></div>
+            <div class="title">
+                <h1>Název kampaně</h1>
+            </div>
+            <nav>
+                <a class="nav_button" href="index.html"><div>Kampaně</div></a>
+                <a class="nav_button" href="new_character.html"><div>Postava</div></a>
+            </nav>
+        </header>
+        <section style="display: flex; flex-direction: column; width: 75%; margin-left: auto; margin-right: auto; background-color: var(--grey); border-radius: 15px; padding: 50px 30px 80px 30px; overflow: hidden;">
+            <article style="width: 100%; margin-bottom: 30px; background-color: var(--black); border-radius: 15px; padding: 10px; font-weight: bold;">
+                <table width="100%">
+                    <tr>
+                        <td>Název:</td>
+                        <td>První kampaň</td>
+                    </tr>
+                    <tr>
+                        <td>PJ:</td>
+                        <td>Matěj (Hráč)</td>
+                    </tr>
+                    <tr>
+                        <td>Celkem session:</td>
+                        <td>6</td>
+
+                    </tr>
+                    <tr>
+                        <td>Postavy:</td>
+                        <td>Castilla, Aias, Zephyr, Türden, Míloš, Reita</td>
+                    </tr>
+                    <tr>
+                        <td>Splněno úkolů:</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Popis</td>
+                        <td>Počáteční kampaň za úkolem nás připravit na nástrahy ve světě Alamon.</td>
+                    </tr>
+                </table>
+            </article>
+            <article style="width: 100%; overflow: unset;">
+                <details>
+                    <summary>Úvod</summary>
+                    <p>
+                        Úvodní text ke kampani.
+                    </p>
+                </details>
+                <details>
+                    <summary>Session 1</summary>
+                    <p>
+                        Popis 1. session.
+                    </p>
+                </details>
+                <details>
+                    <summary>Session 2</summary>
+                    <p>
+                        Popis 2. session.
+                    </p>
+                </details>
+                <details>
+                    <summary>Session 3</summary>
+                    <p>
+                        Popis 3. session.
+                    </p>
+                </details>
+                <details>
+                    <summary>Session 4</summary>
+                    <p>
+                        Popis 4. session.
+                    </p>
+                </details>
+                <details>
+                    <summary>Session 5</summary>
+                    <p>
+                        Popis 5. session.
+                    </p>
+                </details>
+            </article>
+        </section>
+        <script>
+//            logMovies();
+//            async function logMovies() {
+//                const response = await fetch("http://192.168.0.131:8000/campaigns/");
+////                console.log(response);
+//                const movies = await response.json();
+//                console.log(movies);
+//            }
+
+        </script>
+    </body>
+</html>
